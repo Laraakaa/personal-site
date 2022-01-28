@@ -22,7 +22,7 @@ jobs:
       - name: Set Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 10.x
+          node-version: 14.15.0
       - name: Yarn install
         run: yarn install --prod --pure-lockfile
       - name: Yarn build
