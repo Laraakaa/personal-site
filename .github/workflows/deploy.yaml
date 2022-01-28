@@ -1,0 +1,45 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v2
+      - name: Login to private docker registry
+        uses: docker/login-action@v1
+        with:
+          registry: registry.k8s-do.lara.ninja
+          username: admin
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      - uses: yuya-takeyama/docker-tag-from-github-ref-action@v1
+        id: docker-tag
+      - name: Build and push to local registry
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: |
+            registry.k8s-do.lara.ninja/personal-site:${{ steps.docker-tag.outputs.tag }}
+            registry.k8s-do.lara.ninja/personal-site:${{ github.sha }}
+      - name: Env substitute k8s
+        uses: danielr1996/envsubst-action@1.0.0
+        env:
+            DOCKER_IMAGE: registry.k8s-do.lara.ninja/personal-site:${{ github.sha }}
+        with:
+          input: ci/k8s/template.yaml
+          output: ci/k8s/manifest.yaml
+      - name: Sleep for 5 seconds
+        run: sleep 5s
+        shell: bash
+      - name: deploy to cluster
+        uses: steebchen/kubectl@v2.0.0
+        with:
+          config: ${{ secrets.KUBE_CONFIG_DATA }}
+          version: v1.21.0
+          command: apply -f ci/k8s/manifest.yaml

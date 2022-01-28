@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: personal-site
+  namespace: private-hosting
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: personal-site
+  template:
+    metadata:
+      labels:
+        app: personal-site
+    spec:
+      containers:
+        - name: personal-site
+          image: ${DOCKER_IMAGE}
+          imagePullPolicy: IfNotPresent
+          ports:
+          - name: http
+            containerPort: 80
+          resources:
+            requests:
+              memory: 100Mi
+              cpu: 100m
+            limits:
+              memory: 100Mi
+              cpu: 100m
+      imagePullSecrets:
+        - name: regcred
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: personal-site
+  namespace: private-hosting
+  labels:
+    app: personal-site
+spec:
+  selector:
+    app: personal-site
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-personal-site
+  namespace: private-hosting
+  annotations:
+    # use the shared ingress-nginx
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 10G
+spec:
+  rules:
+  - host: lara.ninja
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: barebar-wordpress
+          servicePort: 80
+  tls:
+  - hosts:
+    - lara.ninja
+    secretName: personal-site-api-cert
