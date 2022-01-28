@@ -19,16 +19,16 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - uses: yuya-takeyama/docker-tag-from-github-ref-action@v1
         id: docker-tag
-      - name: Set Node.js
-        uses: actions/setup-node@master
-        with:
-          node-version: 14.15.0
-      - name: Yarn install
-        run: yarn install --prod --pure-lockfile
-      - name: Yarn build
-        run: yarn run build
-        env:
-          GATSBY_ENV: "prod"
+      # - name: Set Node.js
+      #   uses: actions/setup-node@master
+      #   with:
+      #     node-version: 14.15.0
+      # - name: Yarn install
+      #   run: yarn install --prod --pure-lockfile
+      # - name: Yarn build
+      #   run: yarn run build
+      #   env:
+      #     GATSBY_ENV: "prod"
       - name: Build and push to local registry
         uses: docker/build-push-action@v2
         with:
