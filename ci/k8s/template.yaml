@@ -62,7 +62,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: barebar-wordpress
+          serviceName: personal-site
           servicePort: 80
   tls:
   - hosts:
