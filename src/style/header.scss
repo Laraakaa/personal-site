@@ -1,0 +1,46 @@
+.header {
+  background: #1b1c1d;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+
+  &__inner {
+    font-family: monospace;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.125rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 760px;
+    max-width: 100%;
+  }
+
+  &__cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1rem;
+    background: #8a8a8a;
+    margin-left: 5px;
+    border-radius: 1px;
+    animation: cursor 1s infinite;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-display: auto;
+    font-family: monospace;
+  }
+}
+
+@keyframes cursor {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
