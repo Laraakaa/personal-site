@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () => {
+const Header = () => {
   return (
     <header className="header">
       <span className="header__inner">
@@ -14,3 +14,5 @@ export default () => {
     </header>
   );
 }
+
+export default Header;

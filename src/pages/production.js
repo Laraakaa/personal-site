@@ -26,9 +26,9 @@ const ProductionPage = () => {
           <li>Other experience
             <ul>
               <li>Observing League of Legends games since 2019 (LEC Shadowing, RedBull Itemania, RedBull SoloQ, RedBull unEversE, Postfinance Gaming Cup, Swisscom Hero League)</li>
-              <li>Developing a custom pick-ban tool for League of Legends, that can be styled using web technologies: <a href="https://github.com/RCVolus/lol-pick-ban-ui" target="_blank">github.com/RCVolus/lol-pick-ban-ui</a></li>
-              <li>Developing a custom multi-purpose production toolkit for League of Legends and VALORANT: <a href="https://github.com/RCVolus/league-prod-toolkit" target="_blank">github.com/RCVolus/league-prod-toolkit</a></li>
-              <li>Developing a custom SRT streaming distribution server: <a href="https://github.com/RCVolus/srt-advanced-server" target="_blank">github.com/RCVolus/srt-advanced-server</a></li>
+              <li>Developing a custom pick-ban tool for League of Legends, that can be styled using web technologies: <a href="https://github.com/RCVolus/lol-pick-ban-ui" rel="noreferrer" target="_blank">github.com/RCVolus/lol-pick-ban-ui</a></li>
+              <li>Developing a custom multi-purpose production toolkit for League of Legends and VALORANT: <a href="https://github.com/RCVolus/league-prod-toolkit" rel="noreferrer" target="_blank">github.com/RCVolus/league-prod-toolkit</a></li>
+              <li>Developing a custom SRT streaming distribution server: <a href="https://github.com/RCVolus/srt-advanced-server" rel="noreferrer" target="_blank">github.com/RCVolus/srt-advanced-server</a></li>
               <li>Web Graphics development, custom scripts (vMix, etc.) and applications</li>
             </ul>
           </li>
@@ -42,7 +42,7 @@ const ProductionPage = () => {
           <li>Tool and automation development</li>
         </ul>
         <h2>Interested in working together?</h2>
-        Contact me! <a href='mailt&#111;&#58;inf%6&#70;&#64;&#108;a&#114;&#97;&#46;ni&#110;%6Aa'>i&#110;fo&#64;lara&#46;nin&#106;a</a>
+        Contact me! <a rel="noreferrer" href='mailt&#111;&#58;inf%6&#70;&#64;&#108;a&#114;&#97;&#46;ni&#110;%6Aa'>i&#110;fo&#64;lara&#46;nin&#106;a</a>
       </div>
     </PageLayout>
   )
