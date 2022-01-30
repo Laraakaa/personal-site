@@ -35,7 +35,8 @@ const ProductionPage = () => {
         </ul>
         <h2>Offered Services</h2>
         <ul>
-          <li>Observing League of Legends (all of Switzerland, Europe when covering travel cost, outside Europe after discussion)</li>
+          <li>In-person services offered in all of Switzerland, Europe when covering travel cost, outside of Europe after discussion</li>
+          <li>Observing League of Legends</li>
           <li>Replay Ops and/or ingame director (experience in League of Legends, CS:GO, and VALORANT using vMix Replay)</li>
           <li>Video Switching (experienced with vMix, OBS, Black Magic ATEM), including preset setup</li>
           <li>Further production assistance</li>
